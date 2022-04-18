@@ -3,60 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   dec_a_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvelazq <alvelazq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 12:07:19 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/04/12 13:46:31 by alvelazq         ###   ########.fr       */
+/*   Updated: 2022/04/18 10:02:50 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-static	int	ft_len(int nbr)
+void ft_dec_a_hex_min(int n, int fd)
 {
-	int	leng;
+	char *base;
+	int i;
 
-	if (nbr <= 0)
-		leng = 1;
-	else
-		leng = 0;
-	while (nbr != 0)
+	base = "0123456789abcdef";
+	if (n > 16)
 	{
-		nbr = nbr / 10;
-		leng++;
+		ft_dec_a_hex(n / 16 , fd);
+		n = (n % 16);
 	}
-	return (leng);
-}
-
-char *ft_hex(int numero)
-{
-    int j;
-    int resto;
-    char *espacio;
-
-    len = ft_len(numero);
-    espacio = malloc(sizeof(char) * len + 1);
-    j = 0;
-    while (numero != 0)
-    {
-        resto = numero % 16;
-        if (resto < 10)
-        {
-            espacio[j++] = 48 + resto;
-        }
-        else
-        {
-            espacio[j++] = 55 + resto;
-        }
-        numero = numero / 16;
-    }
-
-    return(espacio);
+	if (n <= 16)
+	{
+		i = 0;
+		while (i < n)
+			i++;
+		write (fd, &base[i], 1);
+	}
 }
 
 int main(void)
 {
-    ft_hex(960);
-    return (0);
+    ft_dec_a_hex_min(960, 1);
+    return(0);
 }

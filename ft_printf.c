@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pruebas.c                                          :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvelazq <alvelazq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:38:07 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/04/12 17:02:51 by alvelazq         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:49:48 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,89 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-void	ft_dec_a_hex(int n, int fb)
+void ft_dec_a_hex(int n, int fd)
 {
-	int r;
+	char *base;
+	int i;
 
-	while (n > 0)
+	base = "0123456789ABCDEF";
+	if (n > 16)
 	{
-		r = n % 16;
-		if (r < 10)
-			r = r + 48;
-		else
-			r = r + 55;
-		write (1, &r, 1);
-		n = n / 16;
+		ft_dec_a_hex(n / 16 , fd);
+		n = (n % 16);
 	}
+	if (n <= 16)
+	{
+		i = 0;
+		while (i < n)
+			i++;
+		write (fd, &base[i], 1);
+	}
+}
+
+void ft_dec_a_hex_min(int n, int fd)
+{
+	char *base;
+	int i;
+
+	base = "0123456789abcdef";
+	if (n > 16)
+	{
+		ft_dec_a_hex_min(n / 16 , fd);
+		n = (n % 16);
+	}
+	if (n <= 16)
+	{
+		i = 0;
+		while (i < n)
+			i++;
+		write (fd, &base[i], 1);
+	}
+}
+
+int	ft_ptr_len(uintptr_t num) // tambien se puede poner unsigned long
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 16;
+	}
+	return (len);
+}
+
+void	ft_put_ptr(uintptr_t num) // también se puede poner unsigned long
+{
+	if (num >= 16)
+	{
+		ft_put_ptr(num / 16);
+		ft_put_ptr(num % 16);
+	}
+	else
+	{
+		if (num <= 9)
+			ft_putchar_fd((num + '0'), 1);
+		else
+			ft_putchar_fd((num - 10 + 'a'), 1);
+	}
+}
+
+int	ft_print_ptr(unsigned long long ptr)
+{
+	int	print_length;
+
+	print_length = 0;
+	print_length += write(1, "0x", 2);
+	if (ptr == 0)
+		print_length += write(1, "0", 1);
+	else
+	{
+		ft_put_ptr(ptr);
+		print_length += ft_ptr_len(ptr);
+	}
+	return (print_length);
 }
 
 int ft_printf(char const *str, ...)
@@ -101,9 +170,14 @@ int ft_printf(char const *str, ...)
         if (str[i] == '%')
         {
 			i++;
-			if (str[i] == 'c' || str[i] == 's')
+			if (str[i] == 's')
 			{
 				ft_putstr_fd(va_arg(args, char *), 1);
+				i++;
+			}
+			else if (str[i] == 'c')
+			{
+				ft_putchar_fd(va_arg(args, int), 1);
 				i++;
 			}
             else if (str[i] == 'd' || str[i] == 'i')
@@ -113,12 +187,12 @@ int ft_printf(char const *str, ...)
 			}
 			else if (str[i] == 'p')
 			{
-
+				ft_print_ptr(va_arg(args, unsigned long long));
 				i++;
 			}
 			else if (str[i] == 'x')
 			{
-				ft_dec_a_hex(va_arg(args, int), 1); // HACERLO minusculo
+				ft_dec_a_hex_min(va_arg(args, int), 1);
 				i++;
 			}
 			else if (str[i] == 'X')
@@ -141,10 +215,19 @@ int ft_printf(char const *str, ...)
 
 int main(void)
 {
-    //ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, 25, "A", "lvaro");
-	//printf("Mi numero sin signo es %u\n", -21);
+	//ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, 25, 'A', "lvaro");
+	ft_printf("mi caracter es %c\n", 'h');
+	printf("el caracter es: %c\n", 'h');
 
-	ft_printf("%X\n", 960);
-	printf("Mi numero hexadecimal %X\n", 960);
+	//ft_printf("%x\n", 1234);
+	//printf("Mi numero hexadecimal %x\n", 1234);
+
+	//PUNTEROS
+	//int x = 999;
+	//int *pt1;
+	//pt1 = &x;
+	//ft_printf("Mi dirección del puntero %p\n", pt1);
+
+	//printf("%u\n", -22);
     return (0);
 }
