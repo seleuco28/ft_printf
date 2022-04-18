@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 13:01:46 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/18 13:32:02 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/18 16:30:37 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,13 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-}
-
 int	ft_printstr(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
+		return(1);
 	while (str[i])
 	{
 		write(1, &str[i], 1);
@@ -81,9 +66,9 @@ char	*ft_uitoa(unsigned int n)
 	num[len] = '\0';
 	while (n != 0)
 	{
-		num[len - 1] = n % 10 + 48;
+        len--;
+		num[len] = n % 10 + 48;
 		n = n / 10;
-		len--;
 	}
 	return (num);
 }
@@ -120,7 +105,7 @@ int ft_printf(char const *str, ...)
         if (str[i] == '%')
         {
 			i++;
-			if (str[i] == 'u')
+			if (str[i] == 'u') // si le paso un numero negativo, lo pasa a binario puro y lo devuelve raro
 			{
 				ft_print_unsigned(va_arg(args, unsigned int));
 				i++;
@@ -136,7 +121,7 @@ int ft_printf(char const *str, ...)
 int main(void)
 {
 
-    ft_printf("%u\n", 22);
-	printf("%u\n", 22);
+    ft_printf("%u\n", -121); // es este binario 11111111111111111111111110000111 signado y 4294967175 sin signar
+	printf("%u\n", -121);
     return (0);
 }

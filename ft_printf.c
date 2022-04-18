@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:38:07 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/04/18 13:49:48 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/18 17:38:34 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,71 @@ int	ft_print_ptr(unsigned long long ptr)
 	return (print_length);
 }
 
+// la parte del unsigned
+int	ft_printstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return(1);
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_num_len(unsigned	int num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 10;
+	}
+	return (len);
+}
+
+char	*ft_uitoa(unsigned int n)
+{
+	char	*num;
+	int		len;
+
+	len = ft_num_len(n);
+	num = (char *)malloc(sizeof(char) * (len + 1));
+	if (!num)
+		return (0);
+	num[len] = '\0';
+	while (n != 0)
+	{
+        len--;
+		num[len] = n % 10 + 48;
+		n = n / 10;
+	}
+	return (num);
+}
+
+int	ft_print_unsigned(unsigned int n)
+{
+	int		print_length;
+	char	*num;
+
+	print_length = 0;
+	if (n == 0)
+		print_length += write(1, "0", 1);
+	else
+	{
+		num = ft_uitoa(n);
+		print_length += ft_printstr(num);
+		free(num);
+	}
+	return (print_length);
+}
+
 int ft_printf(char const *str, ...)
 {
     int num_args = ft_strlen(str);
@@ -190,6 +255,11 @@ int ft_printf(char const *str, ...)
 				ft_print_ptr(va_arg(args, unsigned long long));
 				i++;
 			}
+			else if (str[i] == 'u')
+			{
+				ft_print_unsigned(va_arg(args, unsigned int));
+				i++;
+			}
 			else if (str[i] == 'x')
 			{
 				ft_dec_a_hex_min(va_arg(args, int), 1);
@@ -213,12 +283,17 @@ int ft_printf(char const *str, ...)
     return (0);
 }
 
+
 int main(void)
 {
-	//ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, 25, 'A', "lvaro");
-	ft_printf("mi caracter es %c\n", 'h');
-	printf("el caracter es: %c\n", 'h');
+	//GENERAL
+	ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
 
+	//CARACTER
+	//ft_printf("mi caracter es %c\n", 'h');
+	//printf("el caracter es: %c\n", 'h');
+
+	//HEXADECIMALES
 	//ft_printf("%x\n", 1234);
 	//printf("Mi numero hexadecimal %x\n", 1234);
 
@@ -227,7 +302,10 @@ int main(void)
 	//int *pt1;
 	//pt1 = &x;
 	//ft_printf("Mi dirección del puntero %p\n", pt1);
+	//printf("La dirección del puntero %p\n", pt1);
 
+	//UNSIGNED
+	//ft_printf("%u\n", -22);
 	//printf("%u\n", -22);
     return (0);
 }
