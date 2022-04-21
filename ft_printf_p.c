@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   punteros.c                                         :+:      :+:    :+:   */
+/*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 10:11:57 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/18 12:56:34 by alvarovelaz      ###   ########.fr       */
+/*   Created: 2022/04/21 15:15:00 by alvarovelaz       #+#    #+#             */
+/*   Updated: 2022/04/21 15:59:18 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
+//punteros
 void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }
 
-int	ft_ptr_len(unsigned long num)
+int	ft_ptr_len(uintptr_t num) // tambien se puede poner unsigned long
 {
 	int	len;
 
@@ -44,7 +31,7 @@ int	ft_ptr_len(unsigned long num)
 	return (len);
 }
 
-void	ft_put_ptr(unsigned long num)
+void	ft_put_ptr(uintptr_t num) // también se puede poner unsigned long
 {
 	if (num >= 16)
 	{
@@ -75,46 +62,3 @@ int	ft_print_ptr(unsigned long long ptr)
 	}
 	return (print_length);
 }
-
-int ft_printf(char const *str, ...)
-{
-    int num_args = ft_strlen(str);
-
-    va_list args;
-    va_start (args, str);
-
-    int i;
-
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == '%')
-        {
-			i++;
-			if (str[i] == 'p')
-			{
-				ft_print_ptr(va_arg(args, unsigned long long));
-				i++;
-			}
-		}
-        write(1, &str[i], 1);
-        i++;
-    } 
-    va_end(args);
-    return (0);
-}
-
-int main(void)
-{
-	int x = 123456789;
-	int *pt1;
-
-	pt1 = &x;
-
-
-	ft_printf("%p\n", pt1);
-	printf("%p\n", pt1);
-    return (0);
-}
-
-

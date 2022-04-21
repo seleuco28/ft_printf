@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dec_a_hex.c                                        :+:      :+:    :+:   */
+/*   ft_printf_di.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 12:07:19 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/04/18 10:02:50 by alvarovelaz      ###   ########.fr       */
+/*   Created: 2022/04/21 16:10:02 by alvarovelaz       #+#    #+#             */
+/*   Updated: 2022/04/21 16:13:40 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
-void ft_dec_a_hex_min(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char *base;
-	int i;
-
-	base = "0123456789abcdef";
-	if (n > 16)
+	if (n == -2147483648)
 	{
-		ft_dec_a_hex(n / 16 , fd);
-		n = (n % 16);
+		write(fd, "-2147483648", 11);
 	}
-	if (n <= 16)
+	else
 	{
-		i = 0;
-		while (i < n)
-			i++;
-		write (fd, &base[i], 1);
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n *= -1;
+		}
+		if (n < 10)
+		{
+			ft_putchar_fd(n + '0', fd);
+		}
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putchar_fd(n % 10 + '0', fd);
+		}
 	}
-}
-
-int main(void)
-{
-    ft_dec_a_hex_min(960, 1);
-    return(0);
 }

@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   unsigned.c                                         :+:      :+:    :+:   */
+/*   ft_printf_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 13:01:46 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/18 16:30:37 by alvarovelaz      ###   ########.fr       */
+/*   Created: 2022/04/21 15:14:58 by alvarovelaz       #+#    #+#             */
+/*   Updated: 2022/04/21 15:37:51 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
-
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "ft_printf.h"
 
 int	ft_printstr(char *str)
 {
@@ -88,40 +74,4 @@ int	ft_print_unsigned(unsigned int n)
 		free(num);
 	}
 	return (print_length);
-}
-
-int ft_printf(char const *str, ...)
-{
-    int num_args = ft_strlen(str);
-
-    va_list args;
-    va_start (args, str);
-
-    int i;
-
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == '%')
-        {
-			i++;
-			if (str[i] == 'u') // si le paso un numero negativo, lo pasa a binario puro y lo devuelve raro
-			{
-				ft_print_unsigned(va_arg(args, unsigned int));
-				i++;
-			}
-		}
-        write(1, &str[i], 1);
-        i++;
-    } 
-    va_end(args);
-    return (0);
-}
-
-int main(void)
-{
-
-    ft_printf("%u\n", -121); // es este binario 11111111111111111111111110000111 signado y 4294967175 sin signar
-	printf("%u\n", -121);
-    return (0);
 }
