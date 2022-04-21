@@ -6,18 +6,12 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:13:16 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/21 16:06:05 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/21 17:41:39 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-void	ft_putchar_fd(char c, int fd)
-{
-	write (fd, &c, 1);
-}
-*/
+#include "ft_printf_p.c"
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -28,7 +22,7 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	while (s[c] != '\0')
 	{
-		ft_putchar_fd(s[c], 1);
+		ft_putchar_fd(s[c], fd);
 		c++;
 	}
 }
