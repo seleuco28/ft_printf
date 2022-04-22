@@ -6,19 +6,18 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:15:00 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/21 15:59:18 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 14:17:06 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//punteros
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar(char c)
 {
-	write (fd, &c, 1);
+	write (1, &c, 1);
 }
 
-int	ft_ptr_len(uintptr_t num) // tambien se puede poner unsigned long
+int	ft_ptr_len(uintptr_t num)
 {
 	int	len;
 
@@ -31,7 +30,7 @@ int	ft_ptr_len(uintptr_t num) // tambien se puede poner unsigned long
 	return (len);
 }
 
-void	ft_put_ptr(uintptr_t num) // también se puede poner unsigned long
+void	ft_put_ptr(uintptr_t num)
 {
 	if (num >= 16)
 	{
@@ -41,9 +40,9 @@ void	ft_put_ptr(uintptr_t num) // también se puede poner unsigned long
 	else
 	{
 		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
+			ft_putchar((num + '0'));
 		else
-			ft_putchar_fd((num - 10 + 'a'), 1);
+			ft_putchar((num - 10 + 'a'));
 	}
 }
 

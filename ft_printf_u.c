@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:14:58 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/21 15:37:51 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 13:25:14 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printstr(char *str)
 
 	i = 0;
 	if (str == NULL)
-		return(1);
+		return (1);
 	while (str[i])
 	{
 		write(1, &str[i], 1);
@@ -52,7 +52,7 @@ char	*ft_uitoa(unsigned int n)
 	num[len] = '\0';
 	while (n != 0)
 	{
-        len--;
+		len--;
 		num[len] = n % 10 + 48;
 		n = n / 10;
 	}

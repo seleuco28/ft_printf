@@ -6,12 +6,11 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:29:34 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/21 17:16:05 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 14:20:30 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.c"
-#include <stdio.h>
 
 int main(void)
 {
@@ -36,8 +35,8 @@ int main(void)
 	//printf("el caracter es: %c\n", 'h');
 
 	//HEXADECIMALES
-	//ft_printf("%x\n", 1234);
-	//printf("Mi numero hexadecimal %x\n", 1234);
+	//ft_printf("Mi número hexadecimal %x\n", 1234);
+	//printf("El numero hexadecimal %x\n", 1234);
 
 	//PUNTEROS
 	//int x = 999;
