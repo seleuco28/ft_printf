@@ -6,22 +6,23 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:13:16 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 14:16:08 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 18:44:48 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	c;
 
 	c = 0;
 	if (!s)
-		return ;
+		return (1);
 	while (s[c] != '\0')
 	{
 		ft_putchar(s[c]);
 		c++;
 	}
+	return (0);
 }

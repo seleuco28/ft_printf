@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:29:34 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 14:20:30 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 19:36:49 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int main(void)
 {
 	//GENERAL
-	ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
-    printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
+	//ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
+    //printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
 
 	//NUMEROS (d e i)
-	//ft_printf("numero con d: %d y numero con i: %i\n", 23, 24);
-	//printf("numero con d: %d y numero con i: %i\n", 23, 24);
+	ft_printf("numero con d: %d y numero con i: %i\n", 23, 24);
+	printf("numero con d: %d y numero con i: %i\n", 23, 24);
 
 	//PORCENTAJE
 	//ft_printf("el simbolo de porcentaje es: %%\n");

@@ -6,13 +6,13 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:10:02 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 14:16:30 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 19:33:50 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	if (n == -2147483648)
 	{
@@ -26,13 +26,12 @@ void	ft_putnbr(int n)
 			n *= -1;
 		}
 		if (n < 10)
-		{
 			ft_putchar(n + '0');
-		}
 		else
 		{
 			ft_putnbr(n / 10);
 			ft_putchar(n % 10 + '0');
 		}
 	}
+	return (0);
 }
