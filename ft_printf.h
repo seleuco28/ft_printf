@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:16:32 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 14:15:49 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 15:00:43 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ void	ft_put_ptr(uintptr_t num);
 int		ft_print_ptr(unsigned long long ptr);
 void	ft_putstr(char *s);
 void	ft_putnbr(int n);
+size_t	ft_strlen(const char *str);
+int	ft_printpercent(void);
+int	ft_printf(char const *str, ...);
 
 #endif

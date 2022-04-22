@@ -6,18 +6,18 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:38:07 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/04/22 14:15:22 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/22 15:00:46 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+/*
 #include "ft_printf_xX.c"
 #include "ft_printf_u.c"
 #include "ft_printf_p.c"
 #include "ft_printf_cs.c"
 #include "ft_printf_di.c"
-
+*/
 #include <stdlib.h>
 
 size_t	ft_strlen(const char *str)
