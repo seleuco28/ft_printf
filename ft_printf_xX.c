@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:14:55 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/23 09:38:09 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/23 13:17:43 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static	int	ft_len_hex(int nbr)
 	return (leng);
 }
 
-int	ft_dec_a_hex(int n)
+int	ft_dec_a_hex(unsigned int n)
 {
-	char	*base;
-	int		i;
-	int		num_args;
+	char				*base;
+	unsigned int		i;
+	int					num_args;
 
 	num_args = ft_len_hex(n);
 	base = "0123456789ABCDEF";
@@ -51,11 +51,11 @@ int	ft_dec_a_hex(int n)
 	return (num_args);
 }
 
-int	ft_dec_a_hex_min(int n)
+int	ft_dec_a_hex_min(unsigned int n)
 {
-	char	*base;
-	int		i;
-	int		num_args;
+	char			*base;
+	unsigned int	i;
+	int				num_args;
 
 	num_args = ft_len_hex(n);
 	base = "0123456789abcdef";

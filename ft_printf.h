@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:16:32 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 18:48:44 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/23 13:14:32 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-int		ft_dec_a_hex(int n);
-int		ft_dec_a_hex_min(int n);
+int		ft_dec_a_hex(unsigned int n);
+int		ft_dec_a_hex_min(unsigned int n);
 int		ft_printstr(char *str);
 int		ft_num_len(unsigned	int num);
 char	*ft_uitoa(unsigned int n);
