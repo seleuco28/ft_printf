@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:38:07 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/04/22 18:49:57 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/23 10:14:37 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include "ft_printf_p.c"
 #include "ft_printf_cs.c"
 #include "ft_printf_di.c"
-
-#include <stdlib.h>
 
 int	ft_printchar(int c)
 {

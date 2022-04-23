@@ -6,14 +6,33 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:10:02 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 19:33:50 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/23 09:31:57 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static	int	ft_len(int nbr)
+{
+	int	leng;
+
+	if (nbr <= 0)
+		leng = 1;
+	else
+		leng = 0;
+	while (nbr != 0)
+	{
+		nbr = nbr / 10;
+		leng++;
+	}
+	return (leng);
+}
+
 int	ft_putnbr(int n)
 {
+	int	num_args;
+
+	num_args = ft_len(n);
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -33,5 +52,5 @@ int	ft_putnbr(int n)
 			ft_putchar(n % 10 + '0');
 		}
 	}
-	return (0);
+	return (num_args);
 }
