@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:29:34 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/23 13:36:33 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/23 17:58:26 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int main(void)
 	//printf("el char es: %c, y el otro es %c\n", 'A', 'L');
 
 	//STRING
-	ft_printf("el str es %s\n", NULL);
-	printf("el str es %s\n", NULL);
+	//ft_printf("el str es %s\n", NULL);
+	//printf("el str es %s\n", NULL);
+	ft_printf(" NULL %s\n", NULL);
+	printf(" NULL %s\n", NULL);
 	//NUMEROS (d e i)
 	//ft_printf("numero con d: %d y numero con i: %i\n", 23, 24);
 	//printf("numero con d: %d y numero con i: %i\n", 23, 24);

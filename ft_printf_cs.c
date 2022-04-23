@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:13:16 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/23 13:40:42 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/04/23 18:06:21 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	ft_putstr(char *s)
 
 	c = 0;
 	if (!s)
-		return (0);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (s[c] != '\0')
 	{
 		ft_putchar(s[c]);
