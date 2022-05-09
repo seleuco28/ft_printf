@@ -6,7 +6,7 @@
 #    By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/21 17:19:36 by alvarovelaz       #+#    #+#              #
-#    Updated: 2022/04/21 18:01:37 by alvarovelaz      ###   ########.fr        #
+#    Updated: 2022/05/09 17:28:29 by alvarovelaz      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,12 @@ OBJ = $(SRC:.c=.o)
 
 RM = rm -f
 
+CC = gcc -Wall -Wextra -Werror
+
 $(NAME) : $(OBJ)
 	$(LIB) $(NAME) $(OBJ)
 
 all: $(NAME)
-
-.c.o:
-	gcc -Wall -Werror -Wextra -c $< -o $(<:.c=.o)
 
 clean: 
 	$(RM) $(OBJ)

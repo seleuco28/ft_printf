@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:29:34 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/23 17:58:26 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/09 18:01:51 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,23 @@ int main(void)
     //printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
 
 	//CHAR
-	//ft_printf("el char es: %c, y el otro es %c\n", 'A', 'L');
-	//printf("el char es: %c, y el otro es %c\n", 'A', 'L');
+	ft_printf("el char es: %c, y el otro es %c\n", 'A', 'L');
+	printf("el char es: %c, y el otro es %c\n", 'A', 'L');
 
 	//STRING
-	//ft_printf("el str es %s\n", NULL);
-	//printf("el str es %s\n", NULL);
-	ft_printf(" NULL %s\n", NULL);
-	printf(" NULL %s\n", NULL);
+	//ft_printf(" NULL %s\n", NULL);
+	//printf(" NULL %s\n", NULL);
 	//NUMEROS (d e i)
-	//ft_printf("numero con d: %d y numero con i: %i\n", 23, 24);
-	//printf("numero con d: %d y numero con i: %i\n", 23, 24);
+	ft_printf("numero con d: %d y numero con i: %i\n", 23, 24);
+	printf("numero con d: %d y numero con i: %i\n", 23, 24);
 
 	//PORCENTAJE
 	//ft_printf("el simbolo de porcentaje es: %%\n");
 	//printf("el simbolo de porcentaje es: %%\n");
 
 	//STRING
-	//ft_printf("mi string es:  %s\n" , "kaixo egun on");
-	//printf("mi string es:  %s\n", "kaixo egun on");
+	ft_printf("mi string es:  %s y gora %s\n" , "kaixo egun on" , "quien tu ya sabes");
+	printf("mi string es:  %s y gora %s\n", "kaixo egun on", "quien tu ya sabes");
 
 	//CARACTER
 	//ft_printf("mi caracter es %c\n", 'h');
