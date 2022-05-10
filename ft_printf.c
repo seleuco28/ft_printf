@@ -6,19 +6,17 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:38:07 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/05/09 18:02:37 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 12:36:47 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
+
 #include "ft_printf_xX.c"
 #include "ft_printf_u.c"
 #include "ft_printf_p.c"
-#include "ft_printf_cs.c"
+#include "ft_printf_s.c"
 #include "ft_printf_di.c"
-*/
-#include <stdlib.h>
 
 int	ft_printchar(int c)
 {
@@ -34,45 +32,45 @@ int	ft_printpercent(void)
 
 int	ft_formats(va_list *args, char const str)
 {
-	int	num_args;
+	int	len_str;
 
-	num_args = 0;
+	len_str = 0;
 	if (str == 's')
-		num_args += ft_putstr(va_arg(*args, char *));
+		len_str += ft_putstr(va_arg(*args, char *));
 	else if (str == 'c')
-		num_args += ft_printchar(va_arg(*args, int));
+		len_str += ft_printchar(va_arg(*args, int));
 	else if (str == 'd' || str == 'i')
-		num_args += ft_putnbr(va_arg(*args, int));
+		len_str += ft_putnbr(va_arg(*args, int));
 	else if (str == 'p')
-		num_args += ft_print_ptr(va_arg(*args, unsigned long long));
+		len_str += ft_print_ptr(va_arg(*args, unsigned long long));
 	else if (str == 'u')
-		num_args += ft_print_unsigned(va_arg(*args, unsigned int));
+		len_str += ft_print_unsigned(va_arg(*args, unsigned int));
 	else if (str == 'x')
-		num_args += ft_dec_a_hex_min(va_arg(*args, int));
+		len_str += ft_dec_a_hex_min(va_arg(*args, int));
 	else if (str == 'X')
-		num_args += ft_dec_a_hex(va_arg(*args, int));
+		len_str += ft_dec_a_hex(va_arg(*args, int));
 	else if (str == '%')
-		num_args += ft_printpercent();
-	return (num_args);
+		len_str += ft_printpercent();
+	return (len_str);
 }
 
 int	ft_printf(char const *str, ...)
 {
 	va_list	args;
 	int		i;
-	int		num_args;
+	int		len_str;
 
 	i = 0;
-	num_args = 0;
+	len_str = 0;
 	va_start (args, str);
 	while (str[i])
 	{
 		if (str[i] == '%')
-			num_args += ft_formats(&args, str[++i]);
+			len_str += ft_formats(&args, str[++i]);
 		else
-			num_args += ft_printchar(str[i]);
+			len_str += ft_printchar(str[i]);
 		i++;
 	}
 	va_end(args);
-	return (num_args);
+	return (len_str);
 }

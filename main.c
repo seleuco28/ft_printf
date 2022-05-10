@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:29:34 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/05/09 18:01:51 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 12:37:00 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,41 +19,84 @@ int main(void)
     //printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
 
 	//CHAR
-	ft_printf("el char es: %c, y el otro es %c\n", 'A', 'L');
-	printf("el char es: %c, y el otro es %c\n", 'A', 'L');
-
-	//STRING
-	//ft_printf(" NULL %s\n", NULL);
-	//printf(" NULL %s\n", NULL);
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf("el char es: %c, y el otro es %c\n", 'A', 'L');
+	original = printf("el char es: %c, y el otro es %c\n", 'A', 'L');
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
+	//STRING nulo
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf(" NULL %s\n", NULL);
+	original = printf(" NULL %s\n", NULL);
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
 	//NUMEROS (d e i)
-	ft_printf("numero con d: %d y numero con i: %i\n", 23, 24);
-	printf("numero con d: %d y numero con i: %i\n", 23, 24);
-
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf("numero con d: %d y numero con i: %i\n", -23, -24);
+	original = printf("numero con d: %d y numero con i: %i\n", -23, -24);
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
 	//PORCENTAJE
-	//ft_printf("el simbolo de porcentaje es: %%\n");
-	//printf("el simbolo de porcentaje es: %%\n");
-
+	/*
+	ft_printf("%%\n");
+	printf("%%\n");
+	*/
 	//STRING
-	ft_printf("mi string es:  %s y gora %s\n" , "kaixo egun on" , "quien tu ya sabes");
-	printf("mi string es:  %s y gora %s\n", "kaixo egun on", "quien tu ya sabes");
-
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf("mi string es:  %s y gora %s\n" , "kaixo egun on" , "quien tu ya sabes");
+	original = printf("mi string es:  %s y gora %s\n" , "kaixo egun on" , "quien tu ya sabes");
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
 	//CARACTER
-	//ft_printf("mi caracter es %c\n", 'h');
-	//printf("el caracter es: %c\n", 'h');
-
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf("%c\n", 'h');
+	original = printf("%c\n", 'h');
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
 	//HEXADECIMALES
-	//ft_printf("Mi número hexadecimal %x\n", -1234);
-	//printf("El numero hexadecimal %x\n", -1234);
-
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf("%x\n", -1234);
+	original = printf("%x\n", -1234);
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
 	//PUNTEROS
-	//int x = -999;
-	//int *pt1;
-	//pt1 = &x;
-	//ft_printf("Mi dirección del puntero %p\n", pt1);
-	//printf("La dirección del puntero %p\n", pt1);
-
+	/*
+	int x = -999;
+	int *pt1;
+	pt1 = &x;
+	int prueba;
+	int original;
+	prueba = ft_printf("%p\n", pt1);
+	original = printf("%p\n", pt1);
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
 	//UNSIGNED
-	//ft_printf("%u\n", -22);
-	//printf("%u\n", -22);
+	/*
+	int prueba;
+	int original;
+	prueba = ft_printf("%u\n", 0);
+	original = printf("%u\n", 0);
+	printf("%d\n", prueba);
+	printf("%d\n", original);
+	*/
     return (0);
 }

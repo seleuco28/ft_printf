@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_di.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
+/*   By: alvelazq <alvelazq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:10:02 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/23 09:31:57 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 10:49:13 by alvelazq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static	int	ft_len(int nbr)
 
 int	ft_putnbr(int n)
 {
-	int	num_args;
+	int	len;
 
-	num_args = ft_len(n);
+	len = ft_len(n);
 	if (n == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -52,5 +52,5 @@ int	ft_putnbr(int n)
 			ft_putchar(n % 10 + '0');
 		}
 	}
-	return (num_args);
+	return (len);
 }

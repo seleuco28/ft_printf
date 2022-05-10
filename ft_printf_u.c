@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
+/*   By: alvelazq <alvelazq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:14:58 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/22 13:25:14 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 12:25:20 by alvelazq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_uitoa(unsigned int n)
 	while (n != 0)
 	{
 		len--;
-		num[len] = n % 10 + 48;
+		num[len] = n % 10 + '0';
 		n = n / 10;
 	}
 	return (num);

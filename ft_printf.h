@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
+/*   By: alvelazq <alvelazq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 15:16:32 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/04/23 17:43:30 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 12:12:20 by alvelazq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
