@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:38:07 by alvelazq          #+#    #+#             */
-/*   Updated: 2022/05/10 12:36:47 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 15:31:04 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	ft_formats(va_list *args, char const str)
 		len_str += ft_dec_a_hex(va_arg(*args, int));
 	else if (str == '%')
 		len_str += ft_printpercent();
+	else
+		len_str += ft_printchar(str);
 	return (len_str);
 }
 

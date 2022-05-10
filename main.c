@@ -6,7 +6,7 @@
 /*   By: alvarovelazquez <alvarovelazquez@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:29:34 by alvarovelaz       #+#    #+#             */
-/*   Updated: 2022/05/10 12:37:00 by alvarovelaz      ###   ########.fr       */
+/*   Updated: 2022/05/10 15:32:58 by alvarovelaz      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 int main(void)
 {
+	//General con el fallo enconctrado
+	//ft_printf("cspiduxX%\n"); // aqui si da fallo no salta el \n
+	//printf("cspiduxX%\n");
+
+	ft_printf("cspiduxX%ñ\n"); // aqui te tiene que printar la ñ y hacer el salto de linea
+	printf("cspiduxX%ñ\n");
+
 	//GENERAL
 	//ft_printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
     //printf("numero %d y %i letra es %c string %s porcentaje %% \n", 24, -25, 'A', "lvaro");
